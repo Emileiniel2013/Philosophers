@@ -1,10 +1,44 @@
 # Philosophers
-A program about threads, mutexes and data races
 
+Philosophers is a concurrency simulation written in **C**, inspired by the classic *Dining Philosophers Problem*.  
+The goal is to manage resource sharing between multiple threads (philosophers) without causing deadlocks or data races.
 
-Subject: https://cdn.intra.42.fr/pdf/pdf/135133/en.subject.pdf
+This project explores **multithreading**, **mutex synchronization**, and **timing control**, offering a practical view into how concurrent programs manage shared state safely.
+---
+## ⚙️ Features
+- Multiple philosophers running as independent threads
+- Shared resource management using **mutexes**
+- Deadlock and starvation prevention
+- Millisecond-accurate timing system
+- Safe and graceful termination handling
+---
+## 🧩 How to Run
 
-This is my intepretation of the philosophers problem is C. A program about philosophers sharing resources between them to survive.
-My code unfortunately is not the cleanest because I was just putting all the functions in the same c files wihout any logic or organizing so I am sorry about that, but the code is correct, everything is working as it should so be sure to take a look. 
+### 1. Clone and build
+```bash
+git clone https://github.com/yourusername/philosophers.git
+cd philosophers
+make
+```
+2. Run the program
+```bash
+./philo <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep> [number_of_meals]
+```
+3. Example
+```bash
+./philo 5 800 200 200
+```
+Each philosopher alternates between eating, sleeping, and thinking.
+They must avoid starving by acquiring forks (mutexes) in a coordinated way.
+---
+🧠 Technical Details
 
-Thanks
+-Written in C (C99)
+
+-Uses POSIX threads (pthreads) for concurrency
+
+-Thread-safe output handling to avoid mixed prints
+
+-Implemented mutex-based synchronization to avoid deadlocks
+
+-Optional parameter allows setting a max number of meals per philosopher
